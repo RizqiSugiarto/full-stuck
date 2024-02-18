@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <a href="http://localhost:8080/notes/add">
+      <button>Create New Note</button>
+    </a>
+    {{ range . }}
+    <h1>{{ .Header }}</h1>
+    <h2>{{ .Body }}</h2>
+    <a href="http://localhost:8080/delete?header={{ .Header}}"> hapus data </a>
+    {{ end }}
+  </body>
+</html>
