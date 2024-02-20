@@ -9,10 +9,10 @@
     <a href="http://localhost:8080/notes/add">
       <button>Create New Note</button>
     </a>
-    {{ range . }}
+    {{range .}}
     <h1>{{ .Header }}</h1>
     <h2>{{ .Body }}</h2>
     <a href="http://localhost:8080/delete?header={{ .Header}}"> hapus data </a>
-    {{ end }}
+    {{end}}
   </body>
 </html>
