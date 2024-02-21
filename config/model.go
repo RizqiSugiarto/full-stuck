@@ -3,6 +3,7 @@ package config
 type Config struct {
 	Redis
 	Server
+	PostgresDb
 }
 
 type Redis struct {
@@ -13,4 +14,12 @@ type Redis struct {
 
 type Server struct {
 	Port string
+}
+
+type PostgresDb struct {
+	Host     string
+	Port     string
+	User     string
+	Password string
+	Dbname   string
 }

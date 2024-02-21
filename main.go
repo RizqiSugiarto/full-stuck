@@ -13,10 +13,17 @@ import (
 func main() {
 
 	cnf := config.Get()
+	//redis connection
 	databaseRedis := database.GetConnectionRedis(cnf)
 	databaseDialRedis := database.GetConnectionDial(cnf)
-	repo := repository.NewCache(databaseRedis, databaseDialRedis)
-	serv := service.NewCommonNoteService(repo)
+	//postgres connection
+	databasePostgres := database.GetConnectionPostgre(cnf)
+	//repository
+	cache := repository.NewCache(databaseRedis, databaseDialRedis)
+	repo := repository.NewNoteRepository(databasePostgres)
+	//service
+	serv := service.NewCommonNoteService(cache, repo)
+	//controller
 	noteController := controller.NewNoteController(serv)
 
 	noteController.RouteCommonNote()

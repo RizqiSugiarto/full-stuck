@@ -1,0 +1,4 @@
+CREATE TABLE user_inputs(
+    header VARCHAR(50),
+    body VARCHAR(50)
+);
